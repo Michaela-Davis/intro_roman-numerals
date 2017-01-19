@@ -16,17 +16,19 @@ $(document).ready(function() {
     var numbers = [1, 5, 10, 50, 100, 500, 1000];
     var output = "";
 
-    if (input > 3999) {
+    if (input > 3999 || input < 0) {
       alert("Please enter a value between 1 and 3999")
     }
 
-    for (var i = 0; i <= numbers.length; i++) {
-      while (input%numbers[i] < input) {
-        output += roman_numerals[i];
-        input -= numbers[i];
+    numbers.reverse().forEach(function(number) {
+      if (input % number === 0) {
+        output += "yes"
       }
-    }
+    });
 
     $("#output").text(output);
+    // if (input <= 3) {
+    //   $("#output").text("I");
+    // }
   });
 });
