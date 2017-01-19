@@ -12,23 +12,21 @@ $(document).ready(function() {
     event.preventDefault();
 
     var input = parseInt($("#user_input").val());
-    var roman_numerals = ["I", "V", "X", "L", "C", "D", "M"];
-    var numbers = [1, 5, 10, 50, 100, 500, 1000];
+    var roman_numerals = ["M", "CM", "D", "CD", "C", "XL", "L", "XL", "X", "IX", "V", "IV", "I"];
+    var numbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
     var output = "";
 
     if (input > 3999 || input < 0) {
       alert("Please enter a value between 1 and 3999")
     }
 
-    numbers.reverse().forEach(function(number) {
-      if (input % number === 0) {
-        output += "yes"
+    for (var i = 0; i <= numbers.length; i++) {
+      while (input % numbers[i] < input) {
+        output += roman_numerals[i];
+        input -= numbers[i];
       }
-    });
+    }
 
     $("#output").text(output);
-    // if (input <= 3) {
-    //   $("#output").text("I");
-    // }
   });
 });
