@@ -17,6 +17,8 @@ _Does not require a server or setting up a database._
 
 ## Program Specifications
 
+1. Convert numbers 1-5.
+
 ## Known Bugs
 
 _No known bugs or issues_
