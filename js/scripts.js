@@ -1,29 +1,36 @@
-// BUSINESS LOGIC
-function convert(input) {
-  var roman_numerals = ["M", "CM", "D", "CD", "C", "XL", "L", "XL", "X", "IX", "V", "IV", "I"];
-  var numbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-  var output = "";
+// BUSINESS
+var numPlaces = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+var romanNumerals = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
+var output = "";
 
-  if (input > 3999 || input < 0) {
-    alert("Please enter a value between 1 and 3999")
+var checkWrongNum = function(input) {
+  if (input > 3999 || input <= 0) {
+    alert("Please enter a number between 1 and 3999")
+  } else if (!input) {
+    alert("Please enter a number between 1 and 3999")
   }
+};
 
-  for (var i = 0; i <= numbers.length; i++) {
-    while (input % numbers[i] < input) {
-      output += roman_numerals[i];
-      input -= numbers[i];
+var getRoman = function(input) {
+  for (var i = 0; i <= numPlaces.length; i = i + 1) {
+    while ((input % numPlaces[i]) < input) {
+      output = output + romanNumerals[i];
+      input = input - numPlaces[i];
     }
   }
-  return output;
-}
 
-// USER LOGIC
+  $("p.jumbotron").show().text(output);
+};
+
+// USER
+
 $(document).ready(function() {
-  $("form.roman").submit(function(event){
+  $(".roman").submit(function(event) {
     event.preventDefault();
-    var input = parseInt($("#user_input").val());
-    var output = convert(input);
 
-    $("#output").text(output);
+    var input = parseInt($("#userInput").val());
+
+    checkWrongNum(input);
+    getRoman(input);
   });
 });

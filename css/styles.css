@@ -1,8 +1,14 @@
 body {
+  font-family: serif;
   width: 80%;
   margin: 0 auto;
 }
 
 .jumbotron {
   margin-top: 50px;
+}
+
+p.jumbotron {
+  display: none;
+  font-size: 2em;
 }

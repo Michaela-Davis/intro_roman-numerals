@@ -16,8 +16,19 @@ _This is a webpage application built using HTML, CSS, Bootstrap, JavaScript, and
 _Does not require a server or setting up a database._
 
 ## Program Specifications
+* The program returns an error for blank entries, since they do not contain numbers
+  * Input:
+  * Output: "Please enter a number between 1 and 3999"
+* This program will return an error for numbers 0 or less and more than 3999.
+  * Input: 4000
+  * Output: "Please enter a number between 1 and 3999"
+* This program will convert any number not containing a 4 or a 9 to Roman Numerals.
+  * Input: 1888
+  * Output: MDCCCLXXXVIII
+* This program will convert any number between 1 and 3999 to Roman Numerals.
+  * Input: 1984
+  * Output: MCMLXXXIV
 
-1. Convert numbers 1-5.
 
 ## Known Bugs
 
